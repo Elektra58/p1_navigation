@@ -1,5 +1,7 @@
 ### Udacity Deep Reinforcement Learning Nanodegree:
+
 # Project 1: Navigation
+
 ## Introduction
 Let there be an agent sitting in the center of a large square world cluttered with yellow and blue bananas. The goal of the agent is to collect as many of the yellow bananas as possible while avoiding the blue ones. For this, the agent can move forward or backward and turn left or right. 
 
@@ -8,8 +10,10 @@ This repository is an implementation of a simplified version of the Banana Colle
 ![Short sequency of the trained agent in action](trained_agent.gif)
 
 ## Project Details
+
 #### Project Environment
 The project is implemented as a 4 layer neural network. The network is specified in the file `model.py`. The agent is implemented in the file `dqn_agent.py`, and the notebook `Navigation.ipynb` provides the interactive code to train an untrained and run a trained agent. 
+
 #### State Space
 The agent's field of view consists of 7 horizontal rays around its forward direction. For each ray, the distance and category of the observed object is recorded. The category is one of the following:
 - yellow banana
@@ -28,6 +32,7 @@ The action space has 4 dimensions corresponding to the 4 discrete actions the ag
 
 #### Rewards
 A reward of $+1$ is provided for collecting a yellow banana, and a reward of $-1$ for a blue one.
+
 #### Goal
 The task is episodic. The agent must get an average score of $+13$ over 100 consecutive episodes.
 
@@ -183,6 +188,7 @@ zlib                      1.2.11               ha838bed_2
 ### Udacity Project Repository
 Download the [project's repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation) from Udacity's GitHub page if you like to re-implement the project yourself.
 The environment can be downloaded [here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip). The project's GitHub page contains links to download it for operating systems other than Linux.
+
 ## Instructions
 Make sure the `Banana.x86_64` and the folder `Banana_Data` from your environment are in your project directory, together with the `model.py` and the `dqn_agent.py` files and the `Navigation.ipynb` notebook:
 ```text
@@ -205,7 +211,9 @@ jupyter notebook
 ````
 The notebook is opened in your standard browser. You might have to navigate to the project directory, then start `Navigation.ipynb`.
 Run the first three cells by clicking `SHIFT ENTER`
+
 #### Training the Agent
 Define the average score to be reached. The project required $13$ or more, $15$ was selected. Then run the relevant cells. Training progress is printed every $100$ episodes, moving average score has reached the predefined threshold, training is complete. The weights are then written to the file `checkpoint.pth`. and the average score over the last $100$ timesteps is plotted.
+
 #### Running the Agent
 To run the trained agent, load the weights from `checkpoint.pth`, reset the environment with `train_mode=False` and the score reset to $0$, then run until done.
