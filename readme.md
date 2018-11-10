@@ -1,14 +1,16 @@
 ### Udacity Deep Reinforcement Learning Nanodegree:
 # Project 1: Navigation
-##Introduction
+## Introduction
 Let there be an agent sitting in the center of a large square world cluttered with yellow and blue bananas. The goal of the agent is to collect as many of the yellow bananas as possible while avoiding the blue ones. For this, the agent can move forward or backward and turn left or right. 
 
 This repository is an implementation of a simplified version of the Banana Collector environment of the [Unity ML Agents Toolkit](https://github.com/Unity-Technologies/ml-agents)  with only one agent and no obstacles.
+
 ![Short sequency of the trained agent in action](trained_agent.gif)
-##Project Details
-####Project Environment
+
+## Project Details
+#### Project Environment
 The project is implemented as a 4 layer neural network. The network is specified in the file `model.py`. The agent is implemented in the file `dqn_agent.py`, and the notebook `Navigation.ipynb` provides the interactive code to train an untrained and run a trained agent. 
-####State Space
+#### State Space
 The agent's field of view consists of 7 horizontal rays around its forward direction. For each ray, the distance and category of the observed object is recorded. The category is one of the following:
 - yellow banana
 - blue banana
@@ -17,19 +19,19 @@ The agent's field of view consists of 7 horizontal rays around its forward direc
 For each ray, the velocity of the agent in 2D is also recorded.
 The observation space, therefore, consists of $7 \cdot 5 + 2 = 37$ possible input values. 
 
-####Action Space
+#### Action Space
 The action space has 4 dimensions corresponding to the 4 discrete actions the agent can choose from:
 - `0`: move forward
 - `1`: move backward
 - `2`: turn left
 - `3`: turn right
 
-####Rewards
+#### Rewards
 A reward of $+1$ is provided for collecting a yellow banana, and a reward of $-1$ for a blue one.
-####Goal
+#### Goal
 The task is episodic. The agent must get an average score of $+13$ over 100 consecutive episodes.
 
-##Getting Started
+## Getting Started
 The repository was developed and tested in a 64-bit Windows 10 virtual machine running Ubuntu 18.04 on an Intel Core i7-7700 CPU with dual NVIDIA GeForce GTX 1080.  
 
 The following packages had to be installed:
@@ -47,7 +49,7 @@ The following packages had to be installed:
     bash Anaconda3-5.3.0-Linux-x86_64.sh
     ``` 
 
-####Dependencies
+#### Dependencies
 This repository requires Python 3.6. A virtual environment `drlnd` was created like so:
 ```commandline
 conda create -n drlnd python=3.6
@@ -178,10 +180,10 @@ widgetsnbextension        3.4.2                     <pip>
 xz                        5.2.4                h14c3975_4  
 zlib                      1.2.11               ha838bed_2  
 ```
-###Udacity Project Repository
+### Udacity Project Repository
 Download the [project's repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation) from Udacity's GitHub page if you like to re-implement the project yourself.
 The environment can be downloaded [here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip). The project's GitHub page contains links to download it for operating systems other than Linux.
-##Instructions
+## Instructions
 Make sure the `Banana.x86_64` and the folder `Banana_Data` from your environment are in your project directory, together with the `model.py` and the `dqn_agent.py` files and the `Navigation.ipynb` notebook:
 ```text
 Banana_Data
@@ -196,14 +198,14 @@ unity-environment.log
 ```
 The files `checkpoint.pth` and `unity-environment.log` are (re-)created when running the notebook and don't exist initially.
 
-####Running the Code
+#### Running the Code
 To start the notebook, open a terminal and navigate to your project directory or a parent thereof, then enter
 ````commandline
 jupyter notebook
 ````
 The notebook is opened in your standard browser. You might have to navigate to the project directory, then start `Navigation.ipynb`.
 Run the first three cells by clicking `SHIFT ENTER`
-####Training the Agent
+#### Training the Agent
 Define the average score to be reached. The project required $13$ or more, $15$ was selected. Then run the relevant cells. Training progress is printed every $100$ episodes, moving average score has reached the predefined threshold, training is complete. The weights are then written to the file `checkpoint.pth`. and the average score over the last $100$ timesteps is plotted.
-####Running the Agent
+#### Running the Agent
 To run the trained agent, load the weights from `checkpoint.pth`, reset the environment with `train_mode=False` and the score reset to $0$, then run until done.
